@@ -11,7 +11,7 @@
         stateprovider
             .state('home' , {
                 url: '/home',
-                controller : 'homecontroller',
+                controller : 'homeController',
                 controllerAs: 'hc',
                 templateUrl: '/app/partials/electronics.html'
             })

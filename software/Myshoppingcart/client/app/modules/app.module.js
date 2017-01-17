@@ -2,7 +2,7 @@
     'use strict';
     angular
         .module("myshoppingcart" ,[
-            "ui.router"
-
+            "ui.router" ,
+            "myshoppingcart.home"
         ])
 }());
