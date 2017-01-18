@@ -11,6 +11,7 @@
     "modelName": "Galaxy 1",
     "color": "Gold",
     "battery": "2600 mAh Li-Ion Battery",
+    "rating" : 3,
     "camera": {
       "front": "5MP",
       "rear": "8MP"
@@ -54,6 +55,7 @@
     "modelName": "Galaxy 2",
     "color": "Gold",
     "battery": "2600 mAh Li-Ion Battery",
+    "rating" : 4,
     "camera": {
       "front": "5MP",
       "rear": "8MP"
@@ -97,6 +99,7 @@
     "modelName": "Galaxy On3",
     "color": "Gold",
     "battery": "2600 mAh Li-Ion Battery",
+    "rating" : 5,
     "camera": {
       "front": "5MP",
       "rear": "8MP"
@@ -140,6 +143,7 @@
     "modelName": "Galaxy Note 3",
     "color": "Gold",
     "battery": "12600 mAh Li-Ion Battery",
+    "rating" : 1,
     "comments": [
       {
         "text": "Worst notebook",

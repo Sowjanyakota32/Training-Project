@@ -19,6 +19,7 @@
                 <a href="#">biography</a>
             </div>
         </li>
+
         <li class="dropdown">
             <a ui-sref="homefurniture" class="dropbtn">Home&furniture</a>
             <div class="dropdown-content">
@@ -27,6 +28,37 @@
                 <a href="#">others</a>
             </div>
         </li>
+
     </ul>
+
 </div>
+
+<!--top 5 ratings-->
+
+<div ng-controller="homeController as hc">
+
+    <div class="details" ng-repeat="details in hc.userDetail | orderBy:'-rating'|limitTo: 5">
+        <img src="app/images/{{details.id}}.png">
+        <!--{{details.id}}-->
+        {{details.name}}
+        <!--{{details.image}}-->
+    </div>
+</div>
+
+
+<!--UI select(search box)-->
+
+<!--<div  ng-controller="uiselectcontr as vm">-->
+    <!--<ui-select tagging ng-model="vm.selected" theme="bootstrap">-->
+        <!--<ui-select-match placeholder="Pick one...">{{$select.selected.value}}</ui-select-match>-->
+        <!--<ui-select-choices repeat="val in vm.values | filter: $select.search track by val.value">-->
+            <!--<div ng-bind="val.value | highlight: $select.search"></div>-->
+            <!--</ui-select-cfhoices>-->
+
+    <!--</ui-select>-->
+<!--</div>-->
+
+
+
+
 <footer><h3>Poweredby SemanticBits</h3></footer>

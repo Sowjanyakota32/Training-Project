@@ -8,18 +8,19 @@
     function appConfig(stateprovider , urlprovider , locationprovider) {
         locationprovider.html5Mode(true);
 
+
         stateprovider
-            .state('home' , {
-                url: '/home',
-                controller : 'homeController',
-                controllerAs: 'hc',
-                templateUrl: '/app/partials/electronics.html'
-            })
+            //.state('home' , {
+            //    url: '/home',
+            //    controller : 'homeController',
+            //    controllerAs: 'hc',
+            //    templateUrl: '/app/partials/home.html'
+            //})
 
             .state('books' , {
                 url: '/books',
-                controller : 'homecontroller',
-                controllerAs: 'hc',
+                //controller : 'homecontroller',
+                //controllerAs: 'hc',
                 templateUrl: '/app/partials/books.html'
             })
 
