@@ -1,0 +1,22 @@
+
+<hr>
+<p><b>Electronics</b></p>
+<hr>
+<div id="below">
+    <div class="details" ng-repeat="details in userDetail | orderBy:'-rating'|limitTo: 5">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a ui-sref = "imageurl({ name: details.name , type : details.type })"><img src="app/images/{{details.id}}.png"></a><br>
+        {{details.name}}<br>
+        Price: {{details.price}}
+        <jk-rating-stars max-rating="5" rating="details.rating" read-only=true on-rating="ctrl.onRating(rating)" >
+        </jk-rating-stars>
+    </div>
+</div><br>
+<hr>
+<p><b>Books</b></p>
+<hr>
+<div id="below"></div><br>
+
+
+
+
