@@ -6,11 +6,17 @@
 
     angular
         .module('myshoppingcart.home')
-        .factory("homefactory", ['$http',function($http){
-            var obj = {};
-            obj.Details = function(){
-            return $http.get('app.json');
+        .service('homeservice', ['$http',
+            function($http) {
+                this.news = function() {
+                    return $http.get('app.json', {
+                        //cache: true
+                    }).then(function(res) {
+
+                        return res.data;
+
+                    });
+                }
             }
-        return obj;
-    }])
+        ])
 }());

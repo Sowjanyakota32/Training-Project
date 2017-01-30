@@ -1,1 +1,7 @@
-Books
+<div class = "searchdetails">
+    <div class = "details" ng-repeat="details in userDetail | filter :{subType : 'books'}">
+        <br>
+        <img src = "app/images/{{details.id}}.png"><br><br><br>
+        {{details.name}}
+    </div>
+</div>

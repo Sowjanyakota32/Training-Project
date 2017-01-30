@@ -2,7 +2,11 @@
     'use strict';
     angular
         .module("myshoppingcart" ,[
-            "ui.router" ,
-            "myshoppingcart.home"
+            "ui.router" ,"ui.select",
+            "myshoppingcart.home",
+            "myshoppingcart.view",
+            "myshoppingcart.search",
+            "myshoppingcart.home.directive"
+
         ])
 }());

@@ -1,21 +1,36 @@
 
 <hr>
-<p><b>Electronics</b></p>
+<p><b>Mobiles</b></p>
 <hr>
-<div id="below">
-    <div class="details" ng-repeat="details in userDetail | orderBy:'-rating'|limitTo: 5">
+<div class="below">
+    <div class="details" ng-repeat="details in userDetail | orderBy:'-rating'|filter:{subType:'mobile'}|limitTo: 5">
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <a ui-sref = "imageurl({ name: details.name , type : details.type })"><img src="app/images/{{details.id}}.png"></a><br>
+        <a ui-sref = "imageurl({ name: details.name , type : details.type , subtype : details.subType })"><img src="app/images/{{details.id}}.png"></a><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         {{details.name}}<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         Price: {{details.price}}
+
         <jk-rating-stars max-rating="5" rating="details.rating" read-only=true on-rating="ctrl.onRating(rating)" >
         </jk-rating-stars>
     </div>
 </div><br>
 <hr>
-<p><b>Books</b></p>
+<p><b>Laptops</b></p>
 <hr>
-<div id="below"></div><br>
+<div class="below">
+    <div class="details" ng-repeat="details in userDetail | orderBy:'-rating'|filter:{subType:'laptop'}|limitTo: 5">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a ui-sref = "imageurl({ name: details.name , type : details.type , subtype : details.subType })"><img src="app/images/{{details.id}}.png"></a><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        {{details.name}}<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        Price: {{details.price}}
+        <jk-rating-stars max-rating="5" rating="details.rating" read-only=true >
+        </jk-rating-stars>
+    </div>
+</div><br>
+
 
 
 

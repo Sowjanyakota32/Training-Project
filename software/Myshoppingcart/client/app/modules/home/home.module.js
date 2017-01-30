@@ -1,4 +1,4 @@
 (function() {
     'use strict';
-    angular.module("myshoppingcart.home",[])
+    angular.module("myshoppingcart.home",['jkAngularRatingStars'])
 }());

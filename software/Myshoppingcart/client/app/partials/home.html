@@ -1,64 +1,55 @@
 <header class="pos">MyShoppingCart</header>
-<!--<footer class="pos1">Fixed Footer</footer>-->
-<div class="container">
-    <ul class = "nav navbar-nav " >
-        <li class="dropdown">
-            <a href="#" class="dropbtn">Electronics</a>
-            <div class="dropdown-content">
-                <a ui-sref="home">Mobiles </a>
-                <a href="#">Laptops </a>
-                <a href="#">Telivison </a>
-            </div>
-        </li>
+<div id="navbar" class = "dropdwn">
+    <nav class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="collapse navbar-collapse" id="navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Electronics</b></a>
+                    <ul class="dropdown-menu">
+                        <li><a ui-sref="mobile">Mobiles</a></li>
+                        <li><a ui-sref="laptops">Laptops</a></li>
+                        <li><a href="#">Telivision</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Books</b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Fiction</a></li>
+                        <li><a href="#">Comedy</a></li>
+                        <li><a href="#">Autobiographic</a></li>
+                    </ul>
+                </li>
 
-        <li class="dropdown">
-            <a ui-sref="books" class="dropbtn">Books</a>
-            <div class="dropdown-content">
-                <a href="#">Literature</a>
-                <a href="#">Children </a>
-                <a href="#">biography</a>
-            </div>
-        </li>
-
-        <li class="dropdown">
-            <a ui-sref="homefurniture" class="dropbtn">Home&furniture</a>
-            <div class="dropdown-content">
-                <a href="#">Home & Decor</a>
-                <a href="#">Tools & Hardware</a>
-                <a href="#">others</a>
-            </div>
-        </li>
-
-    </ul>
-
-</div>
-
-<!--top 5 ratings-->
-
-<div ng-controller="homeController as hc">
-
-    <div class="details" ng-repeat="details in hc.userDetail | orderBy:'-rating'|limitTo: 5">
-        <img src="app/images/{{details.id}}.png">
-        <!--{{details.id}}-->
-        {{details.name}}
-        <!--{{details.image}}-->
-    </div>
+            </ul>
+        </div>
+    </nav>
 </div>
 
 
-<!--UI select(search box)-->
+<!--search bar-->
 
-<!--<div  ng-controller="uiselectcontr as vm">-->
-    <!--<ui-select tagging ng-model="vm.selected" theme="bootstrap">-->
-        <!--<ui-select-match placeholder="Pick one...">{{$select.selected.value}}</ui-select-match>-->
-        <!--<ui-select-choices repeat="val in vm.values | filter: $select.search track by val.value">-->
-            <!--<div ng-bind="val.value | highlight: $select.search"></div>-->
-            <!--</ui-select-cfhoices>-->
-
-    <!--</ui-select>-->
-<!--</div>-->
+<div class = "search" ng-controller = "homeController as hc">
+    <ui-select ng-model = "hc.selected" theme="bootstrap"  reset-search-input='false' on-select="onSelected($item)">
+        <ui-select-match placeholder="Select a item in the list" id="automplete" >{{$select.selected.name}}</ui-select-match>
+        <ui-select-choices  refresh = "hc.select($select.search)"  refresh-delay="0" repeat="item in userDetail | filter : $select.search |limitTo: hc.limit "> {{ item.name}} , price :{{ item.price}}
+        </ui-select-choices>
+    </ui-select>
+</div>
 
 
 
 
-<footer><h3>Poweredby SemanticBits</h3></footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

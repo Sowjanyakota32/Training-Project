@@ -5,30 +5,43 @@
     'use strict';
     angular
         .module('myshoppingcart.home')
-        .controller('homeController', homeController)
-        .controller('uiselectcontr',uiselectcontr);
+        .controller('homeController', homeController);
+        //.directive('myCustomUrl',myCustomUrl);
 
-    homeController.$inject = ['homefactory'];
-    function homeController(homefactory) {
-        console.log("hjggggggggggggg")
-        var v = this;
-        homefactory.Details().success(function(response){
-            v.userDetail = response;
+
+    homeController.$inject = ['homeservice','$rootScope'];
+    function homeController(homeservice , rootScope) {
+        var vm = this;
+        homeservice.news().then(function (data) {
+            rootScope.userDetail = data;
+
         });
+        vm.select = function(lettertyped) {
+            if(lettertyped.length > 2) {
+                vm.limit = 500;
+            }
+            else {
+                vm.limit = 0;
+            }
+        }
+
+
+        vm.onSelected = function($item) {
+            console.log("hi hello")
+            //$state.go('root');
+
+        }
     }
 
-    //function  uiselectcontr(){
-    //    vm = this;
-    //    vm.isLoaded = false;
-    //    vm.values = [{
-    //        'key': 22,
-    //        'value': 'Kevin'
-    //    }, {
-    //        'key': 24,
-    //        'value': 'Fiona'
-    //    }];
-    //    vm.selected;
+    //function myCustomUrl() {
+    //    return {
+    //        templateUrl : '/app/partials/home.html'
+    //
+    //    };
     //}
+
+
+
 
 
 }());

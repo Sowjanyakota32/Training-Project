@@ -1,0 +1,61 @@
+<br>
+<div class="bottom">
+    <div class="col">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <img src="app/images/{{vc.k.id}}.png" height="350px" width="180px">
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>{{vc.k.name}}</b>
+    </div>
+    <div class="col"><b>Name: </b> {{vc.k.name }}<br><b> Price: </b>{{vc.k.price}}
+        <br><b> Rating:  </b>{{vc.k.rating}}
+        <br><b> Battery:  </b>{{vc.k.battery}}
+        <br>
+        <b>Camera details :</b><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            front : {{vc.k.camera.front}}<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            rear : {{vc.k.camera.rear}}<br>
+        <b>Description :</b> {{vc.k.description}}
+        <div ng-repeat="offer in vc.k.offers">
+            <b>Offers: </b>{{offer.percentage}}%
+        </div>
+        <b>Comments</b>
+        <div ng-repeat="comment in vc.k.comments">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <b>Text : </b>{{comment.text}}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <b>Rating</b> {{comment.rating}}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <b>Name : </b> {{comment.username}}<br>
+        </div>
+
+        <jk-rating-stars max-rating="5" rating="vc.k.rating" read-only=true on-rating="ctrl.onRating(rating)" >
+        </jk-rating-stars>
+
+    </div>
+    <div class="col"></div>
+</div>
+<hr>
+
+<!--displaying Similar Products-->
+<b>Similar Products</b>
+<hr>
+<div>
+    <button ng-click="vc.current = vc.current-1"class="btn btn-info" style="width: 7% ;align: left;"> Previous</button>
+    <button ng-click="vc.current = vc.current +1" class="btn btn-info" style="width: 7%;float: right;"> Next   </button>
+    <br>
+    <div class="details" ng-repeat="details in vc.productdetails |viewfilter:vc.current*vc.size | limitTo : vc.size">
+        <a ui-sref="imageurl({name : details.name , type : details.type , subtype : details.subType})" vc.current = vc.current +1 ><img src="app/images/{{details.id}}.png"></a><br>
+        {{ details.name }}
+        <br>Price : {{details.price}}
+
+        <jk-rating-stars max-rating="5" rating="details.rating" read-only=true >
+        </jk-rating-stars>
+    </div>
+    <br><br><br><br><br><br><br><br>
+
+</div>
+<br><br>
+
+
+
+
+

@@ -162,3 +162,9 @@ footer {
     float: left;
     width: 50%;
 }
+.buttons {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+    background-color: red;
+}
